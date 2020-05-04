@@ -1,6 +1,4 @@
-package fileio;
-
-import com.sun.xml.internal.ws.policy.privateutil.PolicyUtils;
+package congoApi.fileio;
 
 import java.io.File;
 import java.io.FileReader;
@@ -9,19 +7,22 @@ import java.io.IOException;
 import java.util.Scanner;
 
 
+/**
+ *  @author Joel Elunda
+ */
 public class FileIO {
 
-    private File file = null;
-    private FileReader fileReader = null;
-    private FileWriter fileWriter = null;
-    private StringBuilder stringBuilder = new StringBuilder();
+    private static File file = null;
+    private static FileReader fileReader = null;
+    private static FileWriter fileWriter = null;
+    private static StringBuilder stringBuilder = new StringBuilder();
 
     /**
      * @param path
      * @return String content of path file
      * @throws IOException
      */
-    public String read(String path) throws IOException {
+    public static String read(String path) throws IOException {
         Scanner scanner = new Scanner(new File(path));
 
         while (scanner.hasNext()) {
@@ -37,7 +38,7 @@ public class FileIO {
      * @return boolean true if content has successfully written
      * @throws IOException
      */
-    public boolean write(String path, String content) throws IOException {
+    public static boolean write(String path, String content) throws IOException {
         file = new File(path);
 
         if(file.exists()) {
